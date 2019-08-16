@@ -58,14 +58,14 @@ ENV PANDOC_VERSION="2.7.3"
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="Pandoc" \
-      org.label-schema.description="Pandoc container including PDFLaTeX to build PDFs from Markdown" \
-      org.label-schema.url="https://github.com/kns-it/Docker-Pandoc" \
+      org.label-schema.description="Pandoc container including PDFLaTeX to build PDFs from Markdown and Doxygen with Graphviz" \
+      org.label-schema.url="https://github.com/youmych/Docker-Pandoc-Doxygen" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/kns-it/Docker-Pandoc" \
+      org.label-schema.vcs-url="https://github.com/youmych/Docker-Pandoc-Doxygen" \
       org.label-schema.vendor="KNS" \
       org.label-schema.version=$PANDOC_VERSION \
       org.label-schema.schema-version="1.0" \
-      maintainer="sebastian.kurfer@kns-it.de"
+      maintainer="youmych@yandex.ru"
 
 COPY --from=build /tmp/packages /usr/share/texmf-var
 
@@ -77,6 +77,8 @@ RUN apk add \
             ghostscript \
             librsvg \
             ttf-dejavu \
+            doxygen \
+            graphviz \
             make \
             git && \
     rm -rf /var/cache/apk/* && \

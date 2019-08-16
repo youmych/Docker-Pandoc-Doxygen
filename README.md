@@ -1,4 +1,4 @@
-# Docker-Pandoc
+# Docker-Pandoc-Doxygen
 
 [![](https://images.microbadger.com/badges/version/knsit/pandoc.svg)](https://microbadger.com/images/knsit/pandoc "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/knsit/pandoc.svg)](https://microbadger.com/images/knsit/pandoc "Get your own image badge on microbadger.com")
