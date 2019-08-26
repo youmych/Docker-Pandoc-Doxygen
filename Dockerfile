@@ -87,7 +87,7 @@ RUN apk add \
     mv /tmp/pandoc-${PANDOC_VERSION}/bin/* /usr/bin/ && \
     rm -rf /tmp/* && \
     mkdir -p /opt/project && \
-#    adduser pandoc -D -s /bin/sh && \
+    adduser pandoc -D -s /bin/sh && \
     texhash /usr/share/texmf-var && \
     cd /usr/share/texmf-var/tex/needspace && \
     pdflatex needspace.tex && \
@@ -96,5 +96,5 @@ RUN apk add \
 
 CMD [ "/bin/sh" ]
 
-#USER pandoc
+USER pandoc
 WORKDIR /opt/project
