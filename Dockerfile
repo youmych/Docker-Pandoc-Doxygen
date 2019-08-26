@@ -62,7 +62,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.url="https://github.com/youmych/Docker-Pandoc-Doxygen" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/youmych/Docker-Pandoc-Doxygen" \
-      org.label-schema.vendor="KNS" \
+      org.label-schema.vendor="youmych" \
       org.label-schema.version=$PANDOC_VERSION \
       org.label-schema.schema-version="1.0" \
       maintainer="youmych@yandex.ru"
@@ -86,7 +86,8 @@ RUN apk add \
     tar -xf /tmp/pandoc-${PANDOC_VERSION}-linux.tar.gz -C /tmp && \
     mv /tmp/pandoc-${PANDOC_VERSION}/bin/* /usr/bin/ && \
     rm -rf /tmp/* && \
-    adduser pandoc -D -s /bin/sh && \
+    mkdir -p /opt/project && \
+#    adduser pandoc -D -s /bin/sh && \
     texhash /usr/share/texmf-var && \
     cd /usr/share/texmf-var/tex/needspace && \
     pdflatex needspace.tex && \
@@ -95,5 +96,5 @@ RUN apk add \
 
 CMD [ "/bin/sh" ]
 
-USER pandoc
-WORKDIR /home/pandoc
+#USER pandoc
+WORKDIR /opt/project
